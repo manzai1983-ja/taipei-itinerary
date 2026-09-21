@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>台北 3泊4日 モデルコース</title>
+<meta name="description" content="台北3泊4日のモデルコース。九份・十分・野柳ツアー、故宮、迪化街、夜市。各店の営業時間とMRTの動線、現地で使えるフレーズ付き。">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#faf8f5; --card:#fff; --ink:#1c1a17; --sub:#6b6560;
+  --line:#e6e0d8; --accent:#b4451f; --accent-soft:#fdf0e9;
+  --warn-bg:#fff8e8; --warn-line:#e8c97a; --warn-ink:#6b5210;
+  --pad: clamp(16px, 4vw, 40px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#16140f; --card:#211e18; --ink:#ece7df; --sub:#a29a8e;
+    --line:#332e26; --accent:#f0895c; --accent-soft:#2c1d15;
+    --warn-bg:#2a2214; --warn-line:#6b5828; --warn-ink:#e3cf9c;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#16140f; --card:#211e18; --ink:#ece7df; --sub:#a29a8e;
+  --line:#332e26; --accent:#f0895c; --accent-soft:#2c1d15;
+  --warn-bg:#2a2214; --warn-line:#6b5828; --warn-ink:#e3cf9c;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family: "Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.85;
+  padding: env(safe-area-inset-top,0px) var(--pad) calc(env(safe-area-inset-bottom,0px) + 64px);
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:820px; margin:0 auto}
+header{padding:56px 0 8px; border-bottom:2px solid var(--accent)}
+h1{font-size:clamp(26px,6vw,38px); line-height:1.25; margin:0 0 10px; letter-spacing:.01em}
+.lede{color:var(--sub); font-size:15px; margin:0 0 20px}
+h2{
+  font-size:clamp(19px,4vw,23px); margin:56px 0 4px; padding-bottom:8px;
+  border-bottom:1px solid var(--line); letter-spacing:.01em;
+}
+h3{font-size:17px; margin:34px 0 6px; color:var(--accent)}
+p{margin:12px 0}
+strong{font-weight:700}
+a{color:var(--accent)}
+ul{padding-left:1.3em; margin:12px 0}
+li{margin:6px 0}
+.day{
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:clamp(16px,3.5vw,28px); margin:20px 0 0;
+}
+.day h2{margin-top:0; border:0; padding:0; font-size:clamp(20px,4.4vw,25px)}
+.day .tag{display:inline-block; font-size:12.5px; color:var(--accent); background:var(--accent-soft);
+  padding:3px 10px; border-radius:999px; margin-bottom:10px; letter-spacing:.04em}
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:16px 0}
+table{border-collapse:collapse; width:100%; min-width:460px; font-size:14.5px}
+th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+th{font-size:12.5px; letter-spacing:.06em; color:var(--sub); font-weight:600; white-space:nowrap}
+td:first-child{white-space:nowrap; color:var(--sub); font-variant-numeric:tabular-nums}
+.note{
+  background:var(--warn-bg); border-left:3px solid var(--warn-line); color:var(--warn-ink);
+  padding:12px 16px; border-radius:0 8px 8px 0; margin:18px 0; font-size:14.5px; line-height:1.75;
+}
+.note strong{color:inherit}
+.shop{border-left:3px solid var(--line); padding:2px 0 2px 16px; margin:20px 0}
+.shop .name{font-weight:700; font-size:16px}
+.shop .meta{color:var(--sub); font-size:13.5px; margin-top:2px}
+.ph{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 18px; margin:14px 0}
+.ph .ja{font-size:13.5px; color:var(--sub); margin:0 0 4px}
+.ph .zh{font-size:18px; margin:0; font-weight:600}
+.ph .rom{font-size:13px; color:var(--sub); font-weight:400; display:block; margin-top:2px}
+footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--line); color:var(--sub); font-size:13.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>台北 3泊4日 モデルコース</h1>
+  <p class="lede">松山空港着・中山エリア泊を前提に、夜市・九份・故宮を無理なく回る組み方。各店の営業時間とMRTの動線、現地で使うフレーズ付き。</p>
+</header>
+
+<h2>組み方の考え方</h2>
+<ul>
+  <li><strong>到着日は詰め込まない。</strong> 早朝便なら昼過ぎに一度ホテルで休む前提で組む</li>
+  <li><strong>九份は日没後が本番。</strong> 提灯が点いてからの時間を長く取る</li>
+  <li><strong>夜市は1日1つまで。</strong> 3泊なら2〜3回で十分、詰めると疲れが残る</li>
+  <li><strong>同じ方向に進む日を作る。</strong> 引き返す移動が一番時間を食う</li>
+</ul>
+
+<div class="day">
+<span class="tag">DAY 1 ／ 水曜想定</span>
+<h2>到着・永康街・台北101</h2>
+<p>到着日。夜の台北101が本番なので、昼は軽く動いて体力を残す。</p>
+<div class="scroll"><table>
+<tr><th>時刻</th><th>予定</th><th>メモ</th></tr>
+<tr><td>午前</td><td>松山空港着・入国</td><td>空港のコンビニで<strong>悠遊カード</strong>を購入（100元＋チャージ）</td></tr>
+<tr><td>11:45</td><td>ホテルで荷物を預ける</td><td>チェックインは15:00頃が一般的</td></tr>
+<tr><td>12:00</td><td><strong>永康街</strong>へ移動</td><td>MRT中山 → 東門（淡水信義線・乗換なし4駅／約10分）5番出口</td></tr>
+<tr><td>12:30</td><td>永康街で昼食</td><td>夜が鼎泰豐なので<strong>小籠包以外</strong>を選ぶ</td></tr>
+<tr><td>14:00</td><td>散歩・マンゴーかき氷</td><td>かき氷の有名店が集まる</td></tr>
+<tr><td>15:00</td><td>チェックイン・<strong>仮眠</strong></td><td>ここで寝ておくと夜がもつ</td></tr>
+<tr><td>17:45</td><td><strong>鼎泰豐 台北101店</strong></td><td>先に番号札を取る</td></tr>
+<tr><td>19:30</td><td><strong>台北101 展望台</strong></td><td>10月の日没は17:25頃。完全な夜景になる</td></tr>
+</table></div>
+
+<div class="shop">
+  <div class="name">鼎泰豐 台北101店</div>
+  <div class="meta">台北市信義區市府路45號 B1／MRT台北101・世貿駅 4番出口すぐ<br>日〜木 11:00–21:30／金・土・祝前日 11:00–22:00</div>
+</div>
+<div class="note">
+<strong>混同注意。</strong> 信義路二段194號の「信義本店」は<strong>テイクアウト（弁当）専門</strong>に変わっており、店内飲食は斜向かいの<strong>新生店</strong>（信義路二段277號）に移っています。地図で「鼎泰豐」を検索すると本店が先に出ることがあります。
+</div>
+<div class="shop">
+  <div class="name">台北101 展望台（89F）</div>
+  <div class="meta">10:00–21:00／<strong>最終入場 20:15</strong>／600元前後</div>
+</div>
+<p><strong>鼎泰豐は先に番号札を取ること。</strong> 待ち時間が出ても、その間に101のショッピングフロアを歩けます。逆にすると立って待つことになります。</p>
+</div>
+
+<div class="day">
+<span class="tag">DAY 2 ／ 木曜想定</span>
+<h2>朝食の行列店 → 野柳・十分・九份ツアー</h2>
+<p>午後出発・夜市解散のバスツアーを使う日。午前が自由時間になる。</p>
+<div class="scroll"><table>
+<tr><th>時刻</th><th>予定</th><th>メモ</th></tr>
+<tr><td>09:30</td><td><strong>阜杭豆漿</strong>で朝食</td><td>行列店。下記の注意を必ず読むこと</td></tr>
+<tr><td>11:15</td><td><strong>台鐵便當</strong>を買う</td><td>台北駅1F。ツアーに昼食がないのでこれが昼食</td></tr>
+<tr><td>11:20</td><td>台北駅 M3出口で待機</td><td>忠孝西路沿い・天成大飯店前。地上出口</td></tr>
+<tr><td>11:45</td><td>ツアー出発</td><td>遅刻・ノーショーは返金なしが一般的</td></tr>
+<tr><td>13:00頃</td><td><strong>野柳</strong>（約1時間10分）</td><td>奇岩の岬。日陰がないので帽子と水</td></tr>
+<tr><td>15:00頃</td><td><strong>十分瀑布</strong>（約50分）</td><td>台湾最大の滝。吊り橋が整備中だと歩く距離が増える</td></tr>
+<tr><td>16:00頃</td><td><strong>十分老街</strong>（約1時間）</td><td><strong>天燈を上げるのはここ</strong>。4色200〜250元・現金のみ</td></tr>
+<tr><td>17:45頃</td><td><strong>九份老街</strong>（約2時間）</td><td>着いた時点で提灯が点いている</td></tr>
+<tr><td>21:00</td><td>饒河街観光夜市で解散</td><td>MRT松山駅すぐ</td></tr>
+</table></div>
+
+<h3>朝食 — 阜杭豆漿</h3>
+<div class="shop">
+  <div class="name">阜杭豆漿</div>
+  <div class="meta">台北市中正區忠孝東路一段108號 2F（華山市場内）／MRT善導寺駅 5番出口すぐ<br>火〜日 05:30–12:30／<strong>月曜定休</strong></div>
+</div>
+<div class="note">
+<strong>行列店です。</strong> 7:00〜9:00がピークで<strong>1時間以上待つことも珍しくありません</strong>。平日なら10:30以降に10〜20分程度まで減ります。午後のツアーに乗るなら<strong>09:30着・11:00には店を出る</strong>と決めておくこと。列が異常に長ければ、あきらめて別の早餐店に切り替えるほうが正解です。
+</div>
+<p>看板は<strong>厚燒餅・蛋餅・鹹豆漿</strong>。おかゆに近い口当たりなら鹹豆漿。2Fへ上がる階段の列に並び、先に注文して支払う方式で、<strong>現金</strong>が要ります。</p>
+<p>※「清粥小菜」と名の付く店（復興南路など）は<strong>深夜営業が中心で朝はやっていません</strong>。朝に行くと閉まっています。</p>
+
+<h3>昼食 — 台鐵便當</h3>
+<p>この手のツアーは<strong>昼食が含まれないことが多い</strong>ので、集合前に台北駅で買っておくのが確実です。台北駅1Fの「臺北站1號店」「臺北站2號店」で <strong>9:30–17:30</strong>、<strong>60／80／100元</strong>の3種類。看板は排骨（豚バラ肉）で、<strong>60元は開店30分で売り切れる</strong>ことがあります。車内で食べてよいかはガイドに確認を。</p>
+
+<h3>集合場所 — 台北駅 M3出口</h3>
+<p>台北駅は<strong>MRT・台鉄・高鉄・バスターミナルが一体</strong>の巨大駅で、出口だけで20以上あります。<strong>地下で出口番号を探して迷うのが定番の失敗</strong>です。迷ったら一度地上に出て、通り名と目印のホテルを頼りに歩くほうが速い。20分前行動が安全です。</p>
+
+<h3>夜の軽食 — 九份</h3>
+<div class="shop">
+  <div class="name">阿蘭草仔粿</div>
+  <div class="meta">草仔粿・芋粿巧 1個20元／平日は<strong>19:00閉店</strong>（休日は20:30頃まで）</div>
+</div>
+<div class="shop">
+  <div class="name">阿柑姨芋圓</div>
+  <div class="meta">芋圓（タロ芋団子）／09:00–20:30（土は21:00、日は22:00頃まで）<br>石段を上がった先。<strong>席から海が一望できる</strong></div>
+</div>
+<div class="note">
+<strong>順番が大事。</strong> 阿蘭は19:00に閉まり、阿柑姨は20:30まで。<strong>阿蘭 → 阿柑姨</strong>の順で回らないと草仔粿が買えません。阿柑姨は階段をかなり上るので、景色が目当てなら暗くなりきる前に。どちらも現金。
+</div>
+<p><strong>夕食は九份で軽く済ませるのが正解です。</strong> 夜市解散が21:00なので、そこを夕食の本番にすると遅くなります。</p>
+</div>
+
+<div class="day">
+<span class="tag">DAY 3 ／ 金曜想定</span>
+<h2>龍山寺・迪化街・故宮・士林夜市</h2>
+<p><strong>西南から北へ一直線に進む日。</strong> 一度も引き返さない代わりに、朝が早めになる。</p>
+<div class="scroll"><table>
+<tr><th>時刻</th><th>予定</th><th>メモ</th></tr>
+<tr><td>08:30</td><td><strong>周記肉粥店</strong>で朝食</td><td>MRT龍山寺から徒歩3〜5分</td></tr>
+<tr><td>09:15</td><td><strong>龍山寺</strong></td><td>朝は線香と読経が残る時間帯。徒歩5分</td></tr>
+<tr><td>10:30</td><td><strong>迪化街</strong>を散策</td><td>乾物問屋街。茶葉・ドライマンゴー・カラスミ</td></tr>
+<tr><td>12:00</td><td><strong>賣麵炎仔</strong>で昼食</td><td>ミシュランビブグルマンの切仔麵</td></tr>
+<tr><td>13:00</td><td>（任意）家樂福 重慶店</td><td>迪化街からすぐ。ばらまき土産が安い</td></tr>
+<tr><td>14:00</td><td><strong>故宮博物院</strong></td><td>MRT士林駅からバス（紅30など）</td></tr>
+<tr><td>17:15</td><td><strong>士林夜市</strong></td><td>MRT劍潭駅すぐ。台北最大級</td></tr>
+</table></div>
+
+<div class="shop">
+  <div class="name">周記肉粥店</div>
+  <div class="meta">台北市萬華區廣州街104號／MRT龍山寺駅 徒歩3〜5分<br>朝6時台〜16時頃／定休日なし／現金のみ</div>
+</div>
+<p>1956年創業の老舗。<strong>肉粥（15元〜）と紅燒肉</strong>が看板で、台北三大紅燒肉のひとつに数えられます。粥だけで終わらせず紅燒肉を必ず付けること。龍山寺と徒歩5分で繋がります。</p>
+
+<div class="shop">
+  <div class="name">賣麵炎仔 金泉小吃店</div>
+  <div class="meta">台北市大同區安西街106號／迪化街の北側<br>朝7〜8時頃〜14:30〜15:00／売り切れ次第終了／現金のみ</div>
+</div>
+<p>創業80年超、<strong>ミシュランビブグルマン</strong>の切仔麵店。麺が20元台と驚くほど安いので、<strong>白斬雞や紅燒肉などの黒白切を何皿か取る</strong>のが正しい食べ方です。</p>
+
+<div class="shop">
+  <div class="name">民樂旗魚米粉湯（もう一軒の候補）</div>
+  <div class="meta">台北市大同區民樂街3號／永樂市場のすぐ横<br>06:00–13:00／売り切れ次第終了</div>
+</div>
+<p>迪化街の散策動線上にあります。<strong>13:00前でも売り切れることがある</strong>ので、12:00までに着けるならこちらを優先しても。旗魚（カジキ）の米粉湯と揚げたての紅燒肉が看板です。</p>
+
+<div class="shop">
+  <div class="name">國立故宮博物院</div>
+  <div class="meta">09:00–17:00／<strong>月曜休館</strong>／350元前後</div>
+</div>
+<div class="note">
+<strong>午後に行くと混みます。</strong> 特別展を狙わず、常設の名品（肉形石・毛公鼎など）を絞って見るのがコツ。<strong>翠玉白菜は貸出や展示替えで不在のことがあります</strong>ので、入口で先に確認を。閉館17:00・最終入場16:30目安。
+</div>
+<p><strong>この並びにした理由。</strong> 龍山寺（西南）→ 迪化街 → 故宮（北）→ 士林夜市 が一直線に並ぶので、戻りがありません。故宮を朝イチ（9:00）にすると空いていますが、そのあと南の迪化街へ下りてまた北上することになり、移動が1時間以上増えます。</p>
+<p><strong>士林夜市は広すぎます。</strong> 地下の美食区から入ると迷いません。</p>
+<p><strong>この日がいちばん歩きます。</strong> 4か所まわるので、歩きやすい靴で、途中で一度座る前提で組んでください。</p>
+</div>
+
+<div class="day">
+<span class="tag">DAY 4 ／ 土曜想定</span>
+<h2>朝食・買い物・帰国</h2>
+<p>送迎の時刻が早まることがあるので、<strong>買い物を先、昼食を後</strong>に置いて、時間切れのリスクを昼食側に寄せる。</p>
+<div class="scroll"><table>
+<tr><th>時刻</th><th>予定</th><th>メモ</th></tr>
+<tr><td>08:30</td><td><strong>大王漢寶殿</strong>で朝食</td><td>06:30–13:00／日曜定休</td></tr>
+<tr><td>10:00</td><td>チェックアウト・荷物を預ける</td><td></td></tr>
+<tr><td>10:20</td><td><strong>佳德糕餅</strong></td><td>パイナップルケーキ。朝一番が最も空いている</td></tr>
+<tr><td>11:45</td><td>誠品生活南西／新光三越 南西店</td><td>MRT中山駅直結。買い忘れはここで</td></tr>
+<tr><td>12:30</td><td><strong>欣葉 台菜創始店</strong>で昼食</td><td>要予約</td></tr>
+<tr><td>13:45</td><td>ホテル戻り・荷物受け取り</td><td></td></tr>
+</table></div>
+
+<h3>朝食</h3>
+<div class="shop">
+  <div class="name">大王漢寶殿</div>
+  <div class="meta">MRT中山駅と雙連駅の中間／06:30–13:00／<strong>日曜定休</strong></div>
+</div>
+<div class="shop">
+  <div class="name">鴉片粥（一點創意麵線料理）— 粥で締めたいなら</div>
+  <div class="meta">MRT雙連駅近く／06:30–14:00／<strong>日曜定休</strong>／店内飲食は粥のおかわり無料</div>
+</div>
+<p>※どちらも日曜休みなので、最終日が日曜になる日程では使えません。</p>
+
+<h3>買い物 — 3段構えで</h3>
+<div class="shop">
+  <div class="name">① 高級品 ＝ 佳德糕餅</div>
+  <div class="meta">台北市松山區南京東路五段88號／MRT南京三民駅 2號出口 徒歩2〜3分<br>08:00–21:30</div>
+</div>
+<p>台湾No.1と言われる鳳梨酥（パイナップルケーキ）の店。<strong>平日でも行列</strong>します。空いているのは<strong>朝一番と夕方</strong>。</p>
+<div class="shop">
+  <div class="name">② ばらまき ＝ 誠品生活南西／新光三越 南西店</div>
+  <div class="meta">MRT中山駅直結</div>
+</div>
+<p>雨でも濡れず、<strong>時間が読めるのが最大の利点</strong>。誠品生活は台湾ブランドの雑貨・茶葉、新光三越はB2の食品フロアが強い。</p>
+<div class="shop">
+  <div class="name">③ 安く大量に ＝ 家樂福（カルフール）重慶店</div>
+  <div class="meta">台北市大同區重慶北路二段171號／09:00–24:00（金土は翌02:00まで）</div>
+</div>
+<p>菓子・茶葉・調味料が百貨店よりかなり安く、ばらまき用ならここ。<strong>迪化街から歩いてすぐ</strong>なので、最終日ではなく<strong>Day 3 の散策後に寄るほうが時間に余裕が出ます</strong>。</p>
+<div class="note">
+<strong>お土産の基本方針。</strong> 高級品は佳德、ばらまきはスーパー、雑貨は誠品。<strong>百貨店の贈答用パイナップルケーキは割高</strong>です。
+</div>
+
+<h3>昼食 — 欣葉 台菜創始店</h3>
+<div class="shop">
+  <div class="name">欣葉 台菜創始店</div>
+  <div class="meta">台北市中山區雙城街34-1號／MRT中山國小駅<br>11:00–21:30／TEL 02-2596-3255／<strong>要予約</strong></div>
+</div>
+<p>1977年創業、ミシュラン入選の台湾料理店。菜脯蛋（切干大根の卵焼き）、蜆仔、滷肉など、屋台では食べられないきちんとした台菜で締められます。<strong>土曜の昼は埋まるので必ず予約を。</strong> 電話が難しければホテルのフロントに頼むのが確実です。</p>
+<p>中山駅からは15分ほどかかります。<strong>時間が読めないのが嫌なら、中山駅直結の商業施設で食べて買い物と一体化させる</strong>ほうが安全。最終日は無理をしないこと。</p>
+</div>
+
+<h2>夜市からホテルへ — MRTのフレーズ</h2>
+<p>饒河街夜市は<strong>MRT松山駅</strong>、士林夜市は<strong>MRT劍潭駅</strong>が最寄り。どちらも中山エリアへは乗換なしで戻れます（松山駅からは松山新店線で約12分、劍潭駅からは淡水信義線で約10分）。終電は24時頃です。</p>
+
+<div class="ph">
+  <p class="ja">この緑の線は中山行きですか？（ホームの確認 — これが一番大事）</p>
+  <p class="zh">這是去中山站的嗎？<span class="rom">ヂェー シー チュー ヂョンシャンヂャン ダ マ</span></p>
+</div>
+<div class="ph">
+  <p class="ja">乗り換えは要りますか？</p>
+  <p class="zh">要換車嗎？<span class="rom">ヤオ ホアンチャー マ ／ 答えが「不用（ブーヨン）」なら乗り換え不要</span></p>
+</div>
+<div class="ph">
+  <p class="ja">悠遊カードに200チャージしてください。</p>
+  <p class="zh">悠遊卡加值兩百。<span class="rom">ヨウヨウカー ジアヂー リャンバイ</span></p>
+</div>
+<div class="ph">
+  <p class="ja">何番出口ですか？</p>
+  <p class="zh">幾號出口？<span class="rom">ジー ハオ チューコウ</span></p>
+</div>
+
+<ul>
+  <li><strong>駅名は漢字を見せるのが確実です。</strong> スマホに「中山站」と出して指させば一発で通じます。発音より確実</li>
+  <li>ホームの案内は<strong>終点の駅名</strong>で出ます。方向を終点名で覚えておくこと</li>
+  <li>台湾のMRTは<strong>車内飲食が禁止</strong>（罰金あり）。夜市で買ったものは駅に入る前に食べ切るか、袋を閉じておく</li>
+  <li>チャージは<strong>現金のみ</strong>。夜市で使い切らず少し残しておくと安心</li>
+</ul>
+
+<h2>お金の目安</h2>
+<div class="scroll"><table>
+<tr><th>項目</th><th>目安（1人あたり）</th></tr>
+<tr><td>悠遊カード</td><td>100元＋チャージ500元</td></tr>
+<tr><td>故宮博物院</td><td>350元前後</td></tr>
+<tr><td>台北101 展望台</td><td>600元前後</td></tr>
+<tr><td>天燈（2人で1個）</td><td>200〜250元</td></tr>
+<tr><td>屋台の1品</td><td>50〜100元</td></tr>
+<tr><td>鼎泰豐の食事</td><td>600〜900元</td></tr>
+<tr><td>朝食1回</td><td>50〜150元</td></tr>
+</table></div>
+<p>3泊4日で1人 <strong>8,000〜12,000元</strong>（4〜6万円）程度あれば、食事と土産を含めて足ります。1 NT$ ≒ 5円 で概算。</p>
+<p><strong>現金とカードの使い分け。</strong> ホテル・鼎泰豐・百貨店はカード。<strong>夜市・屋台・天燈・老舗の食堂・タクシーは現金</strong>。このコースで紹介した食堂はほぼ全て現金のみなので、多めに持っておくほうが安全です。</p>
+
+<h2>持ち物</h2>
+<h3>10月中旬の台北に合わせて</h3>
+<ul>
+  <li><strong>半袖＋薄い羽織り</strong> — 最高29℃前後でまだ夏。ただし屋内の冷房が強い</li>
+  <li><strong>折り畳み傘</strong> — スコールがある。日傘兼用が便利</li>
+  <li><strong>歩きやすい靴</strong> — 九份は階段だらけ</li>
+  <li>汗拭きシート／常備薬（胃腸薬は特に）</li>
+  <li>エコバッグ（レジ袋は有料）、ウェットティッシュ（屋台用）</li>
+  <li><strong>変換プラグは不要</strong> — 台湾は日本と同じAタイプ、110V</li>
+</ul>
+<h3>出発前に</h3>
+<ul>
+  <li><strong>Google翻訳に繁体字中国語のオフラインパックをダウンロード</strong>（必須）</li>
+  <li>Google マップで台北のオフライン地図をダウンロード</li>
+  <li>eSIM またはモバイルルーターを手配</li>
+  <li>台湾のオンライン入国カードを事前入力／帰国用に Visit Japan Web を登録</li>
+  <li>ホテル名の漢字をスクリーンショットで持っておく（タクシー用）</li>
+</ul>
+
+<h2>現地メモ</h2>
+<ul>
+  <li><strong>10月はまだ台風の可能性が残ります。</strong> 直前に進路を確認し、九份・十分の日を入れ替えられるようにしておくと安全</li>
+  <li>台北のタクシーは安く、初乗り85元程度。2人ならMRTと大差ないこともある</li>
+  <li>コンビニ（7-ELEVEN、全家）はどこにでもあり、悠遊カードで払える</li>
+  <li><strong>チップは不要</strong></li>
+  <li>時差は<strong>日本より1時間遅れ</strong>。日本 12:00 = 台北 11:00</li>
+</ul>
+
+<footer>
+<p><strong>営業時間・料金・休館日・バスの系統番号は変わります。</strong> このページは計画の骨組みです。出発前に各店・各施設の公式情報で確認してください。特に故宮博物院の休館日、台北101展望台の営業時間、行列店の営業状況は要確認です。</p>
+<p>個人の旅行メモとして公開しています。内容の正確性は保証しません。</p>
+</footer>
+
+</div>
+</body>
+</html>
