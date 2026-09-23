@@ -157,6 +157,32 @@ html{scroll-behavior:smooth}
   font-size:11.5px; letter-spacing:.09em; color:var(--sub); font-weight:700;
 }
 @media print{.jump-btn,.jump-back,.jump-scrim,.jump-sheet{display:none!important}}
+
+/* ---- 発音を聞く ---- */
+.say{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:26px; height:26px; flex:none; margin-left:7px; vertical-align:middle;
+  border:1px solid var(--line); border-radius:999px; background:var(--card);
+  color:var(--accent); cursor:pointer; padding:0; line-height:0;
+}
+.say svg{width:14px; height:14px}
+.say:hover{background:var(--accent-soft)}
+.say[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
+.say[disabled]{opacity:.35; cursor:default}
+.ph .say{margin-left:8px}
+.ext{
+  display:inline-block; margin-left:8px; font-size:12px; white-space:nowrap;
+  color:var(--sub); text-decoration:none; border-bottom:1px dotted var(--line);
+}
+.ext:hover{color:var(--accent)}
+.voice-stat{
+  font-size:13px; color:var(--sub); margin:12px 0 0;
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+}
+.voice-stat .dot{width:8px; height:8px; border-radius:999px; background:var(--sub); flex:none}
+.voice-stat.ok .dot{background:#3f9142}
+.voice-stat.ng .dot{background:#c2561f}
+@media print{.say,.voice-stat{display:none!important}}
 </style>
 </head>
 <body>
@@ -424,8 +450,10 @@ html{scroll-behavior:smooth}
 
 <h2 id="places">地名の言い方と地図</h2>
 <p>タクシーやMRTで行き先を伝えるときに使う読み方です。<strong>発音より漢字を見せるほうが確実</strong>ですが、よく使う<strong>迪化街・龍山寺・寧夏夜市・士林夜市</strong>だけは音でも言えると移動が速くなります。地図のリンクはスマホでそのまま経路案内に移れます。</p>
+<p><strong>スピーカーのマークを押すと音が出ます。</strong> 端末に入っている中国語の音声で読み上げるので、通信がなくても鳴ります。横の「聞く」は Google 翻訳のページを開くリンクで、そちらでも再生できます。</p>
+<p class="voice-stat" id="voiceStat"><span class="dot"></span><span id="voiceMsg">音声を確認しています…</span></p>
 
-<div class="scroll"><table>
+<div class="scroll"><table id="placeTable">
 <tr><th>場所</th><th>ピンイン</th><th>カナ</th><th>地図</th></tr>
 <tr><td>永康街</td><td>Yǒngkāng jiē</td><td>ヨンカン ジエ</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B0%B8%E5%BA%B7%E8%A1%97%20%E5%8F%B0%E5%8C%97">開く</a></td></tr>
 <tr><td>永康牛肉麵</td><td>Yǒngkāng niúròumiàn</td><td>ヨンカン ニウロウミエン</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B0%B8%E5%BA%B7%E7%89%9B%E8%82%89%E9%BA%B5%20%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E9%87%91%E5%B1%B1%E5%8D%97%E8%B7%AF%E4%BA%8C%E6%AE%B531%E5%B7%B717%E8%99%9F">開く</a></td></tr>
@@ -631,6 +659,126 @@ html{scroll-behavior:smooth}
   });
   window.addEventListener('scroll', syncBack, { passive: true });
   syncBack();
+})();
+</script>
+
+<script>
+/* 地名とフレーズに「聞く」を付ける。
+   音は端末の音声合成（中国語）で出すので、オフラインでも鳴る。
+   中国語の音声が入っていない端末のために、Google翻訳へのリンクも併記する。 */
+(function () {
+  var synth = window.speechSynthesis;
+  var stat = document.getElementById('voiceStat');
+  var msg = document.getElementById('voiceMsg');
+  var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6.5 9H3v6h3.5L11 19V5z"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.8 6.7a8 8 0 0 1 0 10.6"/></svg>';
+  var zhVoice = null;
+  var current = null;
+
+  function pickVoice() {
+    var list = (synth && synth.getVoices()) || [];
+    if (!list.length) return false;
+    var want = ['zh-tw', 'zh-hk', 'zh-cn', 'zh', 'cmn'];
+    for (var p = 0; p < want.length; p++) {
+      for (var i = 0; i < list.length; i++) {
+        var lang = (list[i].lang || '').toLowerCase().replace('_', '-');
+        if (lang.indexOf(want[p]) === 0) { zhVoice = list[i]; return true; }
+      }
+    }
+    return true; /* 一覧は取れたが中国語なし */
+  }
+
+  function report() {
+    if (!synth) {
+      stat.className = 'voice-stat ng';
+      msg.textContent = 'このブラウザは読み上げに対応していません。各行の「聞く」から Google 翻訳で再生してください。';
+      return;
+    }
+    if (zhVoice) {
+      stat.className = 'voice-stat ok';
+      msg.textContent = '中国語の音声が使えます（' + (zhVoice.lang || '') + '）。スピーカーを押すと読み上げます。';
+    } else {
+      stat.className = 'voice-stat ng';
+      msg.textContent = 'この端末には中国語の音声が入っていません。各行の「聞く」から Google 翻訳で再生してください。'
+        + 'iPhone は「設定 → アクセシビリティ → 読み上げコンテンツ → 声 → 中国語」で追加できます。';
+    }
+    var on = !!zhVoice;
+    Array.prototype.forEach.call(document.querySelectorAll('.say'), function (b) {
+      b.disabled = !on;
+      b.title = on ? '発音を聞く' : 'この端末に中国語の音声がありません';
+    });
+  }
+
+  function stop() {
+    if (current) { current.setAttribute('aria-pressed', 'false'); current = null; }
+    if (synth) synth.cancel();
+  }
+
+  function speak(text, btn) {
+    if (!synth || !zhVoice) return;
+    if (current === btn) { stop(); return; }
+    stop();
+    var u = new SpeechSynthesisUtterance(text);
+    u.voice = zhVoice;
+    u.lang = zhVoice.lang || 'zh-TW';
+    u.rate = 0.85;
+    u.onend = u.onerror = function () {
+      if (current === btn) { btn.setAttribute('aria-pressed', 'false'); current = null; }
+    };
+    current = btn;
+    btn.setAttribute('aria-pressed', 'true');
+    synth.speak(u);
+  }
+
+  function gtUrl(text) {
+    return 'https://translate.google.com/?sl=zh-TW&tl=ja&op=translate&text=' + encodeURIComponent(text);
+  }
+
+  /* text を読み上げるボタンと、Google翻訳へのリンクを作る。
+     before を渡すとその直前に差し込む（カナの上に置きたいときに使う） */
+  function attach(host, text, before) {
+    if (!text) return;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'say';
+    b.setAttribute('aria-pressed', 'false');
+    b.setAttribute('aria-label', text + ' を読み上げる');
+    b.innerHTML = ICON;
+    b.addEventListener('click', function () { speak(text, b); });
+    var a = document.createElement('a');
+    a.className = 'ext';
+    a.href = gtUrl(text);
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = '聞く ↗';
+    if (before) { host.insertBefore(b, before); host.insertBefore(a, before); }
+    else { host.appendChild(b); host.appendChild(a); }
+  }
+
+  /* 地名の表 — 1列目が中国語 */
+  var table = document.getElementById('placeTable');
+  if (table) {
+    Array.prototype.forEach.call(table.querySelectorAll('tr'), function (tr) {
+      var td = tr.querySelector('td');
+      if (!td) return;
+      attach(td, td.textContent.trim());
+    });
+  }
+
+  /* フレーズカード — .zh からカナ（.rom）を除いた中国語。ボタンはカナの前に置く */
+  Array.prototype.forEach.call(document.querySelectorAll('.ph .zh'), function (zh) {
+    var clone = zh.cloneNode(true);
+    Array.prototype.forEach.call(clone.querySelectorAll('.rom'), function (r) { r.remove(); });
+    attach(zh, clone.textContent.trim(), zh.querySelector('.rom'));
+  });
+
+  if (synth) {
+    pickVoice();
+    /* 端末によっては音声一覧が非同期で届く。届いたら拾い直す */
+    synth.addEventListener('voiceschanged', function () { pickVoice(); report(); });
+    window.setTimeout(function () { pickVoice(); report(); }, 1200);
+  }
+  report();
+  window.addEventListener('pagehide', stop);
 })();
 </script>
 
