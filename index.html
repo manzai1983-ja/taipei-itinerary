@@ -184,20 +184,24 @@ html{scroll-behavior:smooth}
 .voice-stat.ng .dot{background:#c2561f}
 @media print{.say,.voice-stat{display:none!important}}
 
-/* 地名の表は1列目を折り返す。nowrap のままだと長い名前で横に伸びる */
-#placeTable{min-width:420px}
-#placeTable td:first-child{
+/* 読み上げ対象の表は1列目を折り返す。nowrap のままだと長い名前で横に伸びる */
+table.sayTable{min-width:420px}
+table.sayTable td:first-child{
   white-space:normal; max-width:11em; color:var(--ink); font-weight:600;
 }
-#placeTable td:first-child .sub{
+table.sayTable td:first-child .sub{
   display:block; font-size:12px; font-weight:400; color:var(--sub); line-height:1.5;
+}
+table.sayTable td:first-child .pin{
+  display:block; font-size:11.5px; font-weight:400; color:var(--sub);
+  font-style:italic; line-height:1.45;
 }
 #placeTable td:nth-child(2),#placeTable td:nth-child(3){white-space:normal}
 #placeTable td:last-child{white-space:nowrap}
 @media (max-width:480px){
-  #placeTable{font-size:13.5px}
-  #placeTable th,#placeTable td{padding:8px 9px}
-  #placeTable td:first-child{max-width:8.5em}
+  table.sayTable{font-size:13.5px}
+  table.sayTable th,table.sayTable td{padding:8px 9px}
+  table.sayTable td:first-child{max-width:9.5em}
 }
 </style>
 </head>
@@ -576,7 +580,7 @@ html{scroll-behavior:smooth}
 </div>
 <p class="voice-stat" id="voiceStat"><span class="dot"></span><span id="voiceMsg">音声を確認しています…</span></p>
 
-<div class="scroll"><table id="placeTable">
+<div class="scroll"><table id="placeTable" class="sayTable">
 <tr><th>場所</th><th>ピンイン</th><th>カナ</th><th>地図</th></tr>
 <tr><td data-say="晶華酒店">晶華酒店<span class="sub">リージェント台北</span></td><td>Jīnghuá jiǔdiàn</td><td>ジンホア ジウディエン</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%99%B6%E8%8F%AF%E9%85%92%E5%BA%97%20%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80%E4%B8%AD%E5%B1%B1%E5%8C%97%E8%B7%AF%E4%BA%8C%E6%AE%B539%E5%B7%B73%E8%99%9F">開く</a></td></tr>
 <tr><td>台北車站</td><td>Táiběi chēzhàn</td><td>タイベイ チャーヂャン</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E5%8C%97%E8%BB%8A%E7%AB%99%20%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E5%8C%97%E5%B9%B3%E8%A5%BF%E8%B7%AF3%E8%99%9F">開く</a></td></tr>
@@ -675,21 +679,21 @@ html{scroll-behavior:smooth}
 
 <h3>寧夏夜市 — 小さくまとまった初日向き</h3>
 <p>一本の通りを往復するだけで全部見られます。<strong>屋台デビューに一番向いている</strong>規模です。</p>
-<div class="scroll"><table>
+<div class="scroll"><table class="sayTable">
 <tr><th>店</th><th>何を</th><th>ひとこと</th></tr>
-<tr><td><strong>劉芋仔 蛋黃芋餅</strong></td><td>タロイモの揚げ団子</td><td>ミシュランビブグルマン。<strong>1時間待ちもある</strong>ので列が長ければあきらめる</td></tr>
-<tr><td><strong>圓環邊蚵仔煎</strong></td><td>蚵仔煎（牡蠣オムレツ）</td><td>夜市の絶対的定番。まずこれ</td></tr>
-<tr><td><strong>豬肝榮仔</strong></td><td>豬肝湯（レバースープ）</td><td>臭みがなくあっさり。〆にいい</td></tr>
-<tr><td><strong>環記麻油雞</strong></td><td>麻油雞（ごま油の鶏スープ）</td><td>体が温まる。10月の夜でも汗をかきます</td></tr>
+<tr><td data-say="劉芋仔蛋黃芋餅"><strong>劉芋仔 蛋黃芋餅</strong><span class="pin">Liú yùzǎi dànhuáng yùbǐng</span><span class="sub">リウ ユーザイ ダンホアン ユービン</span></td><td>タロイモの揚げ団子</td><td>ミシュランビブグルマン。<strong>1時間待ちもある</strong>ので列が長ければあきらめる</td></tr>
+<tr><td data-say="圓環邊蚵仔煎"><strong>圓環邊蚵仔煎</strong><span class="pin">Yuánhuánbiān ô-á-tsian</span><span class="sub">ユエンホアンビエン オアジエン</span></td><td>蚵仔煎（牡蠣オムレツ）</td><td>夜市の絶対的定番。まずこれ</td></tr>
+<tr><td data-say="豬肝榮仔"><strong>豬肝榮仔</strong><span class="pin">Zhūgān róngzǎi</span><span class="sub">ヂューガン ロンザイ</span></td><td>豬肝湯（レバースープ）</td><td>臭みがなくあっさり。〆にいい</td></tr>
+<tr><td data-say="環記麻油雞"><strong>環記麻油雞</strong><span class="pin">Huánjì máyóujī</span><span class="sub">ホアンジー マーヨウジー</span></td><td>麻油雞（ごま油の鶏スープ）</td><td>体が温まる。10月の夜でも汗をかきます</td></tr>
 </table></div>
 
 <h3>饒河街観光夜市 — ツアー解散後に少しだけ</h3>
 <p>600mの一本道。<strong>入口（松山駅側）にいきなり看板が2つ並びます</strong>。九份で食べたあとなので、欲張らず1〜2品に絞るのが現実的です。</p>
-<div class="scroll"><table>
+<div class="scroll"><table class="sayTable">
 <tr><th>店</th><th>何を</th><th>ひとこと</th></tr>
-<tr><td><strong>福州世祖胡椒餅</strong></td><td>胡椒餅（フージャオビン）</td><td><strong>ビブグルマン。夜市入口の一軒目</strong>で必ず行列。窯で焼く肉まん風、黒胡椒とネギが効く。<strong>焼きたては中が熱いので火傷に注意</strong></td></tr>
-<tr><td><strong>陳董藥燉排骨</strong></td><td>藥燉排骨（ヤオドゥン パイグー）</td><td><strong>ビブグルマン4回</strong>。十数種の漢方で煮込んだスペアリブのスープ。琥珀色で甘く温かい</td></tr>
-<tr><td><strong>阿國滷味</strong></td><td>滷味（ルーウェイ）</td><td>好きな具を選んで煮汁で和えてもらう量り売り。指差しで通じます</td></tr>
+<tr><td data-say="福州世祖胡椒餅"><strong>福州世祖胡椒餅</strong><span class="pin">Fúzhōu shìzǔ hújiāobǐng</span><span class="sub">フージョウ シーズー フージャオビン</span></td><td>胡椒餅（フージャオビン）</td><td><strong>ビブグルマン。夜市入口の一軒目</strong>で必ず行列。窯で焼く肉まん風、黒胡椒とネギが効く。<strong>焼きたては中が熱いので火傷に注意</strong></td></tr>
+<tr><td data-say="陳董藥燉排骨"><strong>陳董藥燉排骨</strong><span class="pin">Chén dǒng yàodùn páigǔ</span><span class="sub">チェンドン ヤオドゥン パイグー</span></td><td>藥燉排骨（ヤオドゥン パイグー）</td><td><strong>ビブグルマン4回</strong>。十数種の漢方で煮込んだスペアリブのスープ。琥珀色で甘く温かい</td></tr>
+<tr><td data-say="阿國滷味"><strong>阿國滷味</strong><span class="pin">Ā guó lǔwèi</span><span class="sub">アーグオ ルーウェイ</span></td><td>滷味（ルーウェイ）</td><td>好きな具を選んで煮汁で和えてもらう量り売り。指差しで通じます</td></tr>
 </table></div>
 <div class="note">
 <strong>ここが一番「1品で満足」できる夜市です。</strong> 胡椒餅と藥燉排骨は台北の夜市の中でも名物度が高く、他の2つでは食べられません。<strong>時間が遅いので、この2つだけ食べて帰るのが正解</strong>。
@@ -697,13 +701,13 @@ html{scroll-behavior:smooth}
 
 <h3>士林夜市 — 台北最大級。地下から入る</h3>
 <p>広すぎて端から歩くと疲れます。<strong>MRT劍潭駅を出て、まず地下の美食區（フードコート）へ降りる</strong>と、有名店がまとまっていて迷いません。</p>
-<div class="scroll"><table>
+<div class="scroll"><table class="sayTable">
 <tr><th>店</th><th>何を</th><th>ひとこと</th></tr>
-<tr><td><strong>豪大大雞排</strong></td><td>雞排（ジーパイ）</td><td>士林の代名詞。<strong>顔より大きいフライドチキン</strong>。2人で1枚を分けるくらいでちょうどいい</td></tr>
-<tr><td><strong>鍾家原上海生煎包</strong></td><td>生煎包（ションジエンバオ）</td><td><strong>ビブグルマン</strong>。焼き小籠包。肉とキャベツの2種、皮がふっくらして底が香ばしい</td></tr>
-<tr><td><strong>忠誠號蚵仔煎</strong></td><td>蚵仔煎</td><td>牡蠣がたっぷり。甘辛ダレが台湾の味</td></tr>
-<tr><td><strong>王子起司馬鈴薯</strong></td><td>チーズポテト</td><td>ベイクドポテトにチーズを流し込む。若者向けで見た目が派手</td></tr>
-<tr><td><strong>辛發亭 雪花冰</strong></td><td>雪花冰（シュエホアビン）</td><td>ふわふわのかき氷。<strong>〆はこれ</strong></td></tr>
+<tr><td data-say="豪大大雞排"><strong>豪大大雞排</strong><span class="pin">Háo dàdà jīpái</span><span class="sub">ハオ ダーダー ジーパイ</span></td><td>雞排（ジーパイ）</td><td>士林の代名詞。<strong>顔より大きいフライドチキン</strong>。2人で1枚を分けるくらいでちょうどいい</td></tr>
+<tr><td data-say="鍾家原上海生煎包"><strong>鍾家原上海生煎包</strong><span class="pin">Zhōngjiā yuán Shànghǎi shēngjiānbāo</span><span class="sub">ヂョンジア ユエン シャンハイ ションジエンバオ</span></td><td>生煎包（ションジエンバオ）</td><td><strong>ビブグルマン</strong>。焼き小籠包。肉とキャベツの2種、皮がふっくらして底が香ばしい</td></tr>
+<tr><td data-say="忠誠號蚵仔煎"><strong>忠誠號蚵仔煎</strong><span class="pin">Zhōngchéng hào ô-á-tsian</span><span class="sub">ヂョンチョンハオ オアジエン</span></td><td>蚵仔煎</td><td>牡蠣がたっぷり。甘辛ダレが台湾の味</td></tr>
+<tr><td data-say="王子起司馬鈴薯"><strong>王子起司馬鈴薯</strong><span class="pin">Wángzǐ qǐsī mǎlíngshǔ</span><span class="sub">ワンズー チースー マーリンシュー</span></td><td>チーズポテト</td><td>ベイクドポテトにチーズを流し込む。若者向けで見た目が派手</td></tr>
+<tr><td data-say="辛發亭雪花冰"><strong>辛發亭 雪花冰</strong><span class="pin">Xīnfātíng xuěhuābīng</span><span class="sub">シンファーティン シュエホアビン</span></td><td>雪花冰（シュエホアビン）</td><td>ふわふわのかき氷。<strong>〆はこれ</strong></td></tr>
 </table></div>
 <div class="note">
 <strong>3つの夜市で同じものを頼まないこと。</strong> 蚵仔煎（牡蠣オムレツ）はどこにもありますが、食べるなら<strong>1回だけ</strong>。寧夏では芋餅とスープ類、饒河街では胡椒餅と藥燉排骨、士林では雞排と生煎包と、<strong>被らないように取ると3回とも違う体験</strong>になります。<br>
@@ -1006,16 +1010,13 @@ html{scroll-behavior:smooth}
     else { host.appendChild(b); host.appendChild(a); }
   }
 
-  /* 地名の表 — 1列目が中国語 */
-  var table = document.getElementById('placeTable');
-  if (table) {
-    Array.prototype.forEach.call(table.querySelectorAll('tr'), function (tr) {
-      var td = tr.querySelector('td');
-      if (!td) return;
-      /* data-say があればそれを読む（日本語の補足を読ませないため） */
-      attach(td, (td.getAttribute('data-say') || td.textContent).trim());
-    });
-  }
+  /* 読み上げ対象の表 — 1列目が中国語。地名の表と夜市の店の表 */
+  Array.prototype.forEach.call(document.querySelectorAll('table.sayTable tr'), function (tr) {
+    var td = tr.querySelector('td');
+    if (!td) return;
+    /* data-say があればそれを読む（読みや日本語の補足を読ませないため） */
+    attach(td, (td.getAttribute('data-say') || td.textContent).trim());
+  });
 
   /* フレーズカード — .zh からカナ（.rom）を除いた中国語。ボタンはカナの前に置く */
   Array.prototype.forEach.call(document.querySelectorAll('.ph .zh'), function (zh) {
