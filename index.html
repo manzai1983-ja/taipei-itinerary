@@ -183,6 +183,22 @@ html{scroll-behavior:smooth}
 .voice-stat.ok .dot{background:#3f9142}
 .voice-stat.ng .dot{background:#c2561f}
 @media print{.say,.voice-stat{display:none!important}}
+
+/* 地名の表は1列目を折り返す。nowrap のままだと長い名前で横に伸びる */
+#placeTable{min-width:420px}
+#placeTable td:first-child{
+  white-space:normal; max-width:11em; color:var(--ink); font-weight:600;
+}
+#placeTable td:first-child .sub{
+  display:block; font-size:12px; font-weight:400; color:var(--sub); line-height:1.5;
+}
+#placeTable td:nth-child(2),#placeTable td:nth-child(3){white-space:normal}
+#placeTable td:last-child{white-space:nowrap}
+@media (max-width:480px){
+  #placeTable{font-size:13.5px}
+  #placeTable th,#placeTable td{padding:8px 9px}
+  #placeTable td:first-child{max-width:8.5em}
+}
 </style>
 </head>
 <body>
@@ -463,7 +479,7 @@ html{scroll-behavior:smooth}
 
 <div class="scroll"><table id="placeTable">
 <tr><th>場所</th><th>ピンイン</th><th>カナ</th><th>地図</th></tr>
-<tr><td>晶華酒店（リージェント台北）</td><td>Jīnghuá jiǔdiàn</td><td>ジンホア ジウディエン</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%99%B6%E8%8F%AF%E9%85%92%E5%BA%97%20%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80%E4%B8%AD%E5%B1%B1%E5%8C%97%E8%B7%AF%E4%BA%8C%E6%AE%B539%E5%B7%B73%E8%99%9F">開く</a></td></tr>
+<tr><td data-say="晶華酒店">晶華酒店<span class="sub">リージェント台北</span></td><td>Jīnghuá jiǔdiàn</td><td>ジンホア ジウディエン</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%99%B6%E8%8F%AF%E9%85%92%E5%BA%97%20%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80%E4%B8%AD%E5%B1%B1%E5%8C%97%E8%B7%AF%E4%BA%8C%E6%AE%B539%E5%B7%B73%E8%99%9F">開く</a></td></tr>
 <tr><td>台北車站</td><td>Táiběi chēzhàn</td><td>タイベイ チャーヂャン</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E5%8C%97%E8%BB%8A%E7%AB%99%20%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E5%8C%97%E5%B9%B3%E8%A5%BF%E8%B7%AF3%E8%99%9F">開く</a></td></tr>
 <tr><td>松山車站</td><td>Sōngshān chēzhàn</td><td>ソンシャン チャーヂャン</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%BE%E5%B1%B1%E8%BB%8A%E7%AB%99%20%E5%8F%B0%E5%8C%97%E5%B8%82%E4%BF%A1%E7%BE%A9%E5%8D%80%E6%9D%BE%E5%B1%B1%E8%B7%AF11%E8%99%9F">開く</a></td></tr>
 <tr><td>永康街</td><td>Yǒngkāng jiē</td><td>ヨンカン ジエ</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B0%B8%E5%BA%B7%E8%A1%97%20%E5%8F%B0%E5%8C%97">開く</a></td></tr>
@@ -493,8 +509,12 @@ html{scroll-behavior:smooth}
   <p class="zh">請問，這裡排隊嗎？<span class="rom">チンウェン、ジャーリ パイドゥイ マ</span></p>
 </div>
 <div class="ph">
-  <p class="ja">店内で食べます／持ち帰りで</p>
-  <p class="zh">內用／外帶<span class="rom">ネイヨン／ワイダイ</span></p>
+  <p class="ja">店内で食べます</p>
+  <p class="zh">內用<span class="rom">ネイヨン</span></p>
+</div>
+<div class="ph">
+  <p class="ja">持ち帰りで</p>
+  <p class="zh">外帶<span class="rom">ワイダイ</span></p>
 </div>
 <div class="ph">
   <p class="ja">パクチー抜きで</p>
@@ -804,7 +824,8 @@ html{scroll-behavior:smooth}
     Array.prototype.forEach.call(table.querySelectorAll('tr'), function (tr) {
       var td = tr.querySelector('td');
       if (!td) return;
-      attach(td, td.textContent.trim());
+      /* data-say があればそれを読む（日本語の補足を読ませないため） */
+      attach(td, (td.getAttribute('data-say') || td.textContent).trim());
     });
   }
 
